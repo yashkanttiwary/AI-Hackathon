@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GENIE-US | PW AI Hackathon 2026</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧠</text></svg>">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Inter',sans-serif;background:#fff;color:#1a1a2e;overflow-x:hidden}
+  .page{max-width:850px;margin:0 auto;padding:32px 44px}
+
+  @media print {
+    body{background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact;color-adjust:exact}
+    .page{max-width:100%;padding:20px 32px;margin:0}
+    *{-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important;color-adjust:exact!important}
+    .fu,.d1,.d2,.d3,.d4,.d5,.d6,.d7{animation:none!important;opacity:1!important;transform:none!important}
+    .ba-arrow,.fl-arr,.learn-dot{animation:none!important}
+    .impact::after{animation:none!important}
+    .flow-box{animation:none!important;border-color:#1A4FBF44!important}
+    .ag:hover,.flow-step:hover,.ai-chip:hover,.pw-g:hover{transform:none!important;box-shadow:none!important}
+    @page{size:A4;margin:12mm 10mm}
+  }
+
+  @keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+  @keyframes flowArrow{0%{opacity:.3;transform:translateX(-3px)}50%{opacity:1;transform:translateX(3px)}100%{opacity:.3;transform:translateX(-3px)}}
+  @keyframes dotPulse{0%,100%{opacity:.3}50%{opacity:1}}
+  @keyframes shimmer{0%{background-position:-200% 0}100%{background-position:200% 0}}
+  @keyframes borderGlow{0%,100%{border-color:#1A4FBF22}50%{border-color:#1A4FBF88}}
+  @keyframes countPop{0%{transform:scale(0.8);opacity:0}60%{transform:scale(1.05)}100%{transform:scale(1);opacity:1}}
+
+  .fu{animation:fadeUp .6s ease both}
+  .d1{animation-delay:.08s}.d2{animation-delay:.16s}.d3{animation-delay:.24s}
+  .d4{animation-delay:.32s}.d5{animation-delay:.4s}.d6{animation-delay:.48s}.d7{animation-delay:.56s}
+
+  .header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:20px;padding-bottom:16px;border-bottom:3px solid #1A4FBF}
+  .logo{font-size:38px;font-weight:900;color:#1A4FBF;letter-spacing:-2px;line-height:1}
+  .logo-sub{font-size:12.5px;color:#475569;margin-top:4px;font-weight:500;line-height:1.45}
+  .hdr-r{text-align:right}
+  .badge{display:inline-block;background:linear-gradient(135deg,#1A4FBF,#3B82F6);color:#fff;font-size:9.5px;font-weight:700;padding:5px 13px;border-radius:6px;letter-spacing:.5px}
+  .hdr-team{font-size:9.5px;color:#94a3b8;margin-top:4px}
+
+  .hero{text-align:center;padding:16px 20px;margin-bottom:18px;background:linear-gradient(135deg,#059669,#10B981);border-radius:14px;animation:countPop .7s ease .2s both}
+  .hero-num{font-size:36px;font-weight:900;color:#fff;letter-spacing:-1px}
+  .hero-label{font-size:11px;color:#D1FAE5;font-weight:600;margin-top:2px;letter-spacing:.3px}
+
+  .oneliner{text-align:center;padding:14px 20px;margin-bottom:18px;background:#F8FAFC;border-radius:12px;border:1.5px solid #E2E8F0}
+  .oneliner p{font-size:14px;font-weight:600;color:#0f172a;line-height:1.6}
+  .hl{background:linear-gradient(135deg,#1A4FBF,#3B82F6);-webkit-background-clip:text;-webkit-text-fill-color:transparent;font-weight:800}
+
+  .ba{margin-bottom:18px}
+  .ba-label{font-size:9px;font-weight:800;letter-spacing:1.3px;margin-bottom:8px;color:#64748b}
+  .ba-grid{display:grid;grid-template-columns:1fr auto 1fr;gap:0;align-items:stretch}
+  .ba-box{border-radius:11px;padding:12px 14px}
+  .ba-b{background:#FEF2F2;border:1.5px solid #FECACA}
+  .ba-a{background:#F0FDF4;border:1.5px solid #BBF7D0}
+  .ba-arrow-col{display:flex;align-items:center;justify-content:center;padding:0 8px}
+  .ba-arrow{font-size:26px;color:#1A4FBF;animation:flowArrow 1.5s ease infinite}
+  .ba-title{font-size:11px;font-weight:800;margin-bottom:6px;letter-spacing:.3px}
+  .ba-b .ba-title{color:#DC2626}
+  .ba-a .ba-title{color:#059669}
+  .ba-item{font-size:10px;color:#334155;padding:2.5px 0;line-height:1.4;padding-left:18px;position:relative}
+  .ba-item::before{position:absolute;left:0;font-size:11px}
+  .ba-b .ba-item::before{content:'✗';color:#EF4444;font-weight:700}
+  .ba-a .ba-item::before{content:'✓';color:#10B981;font-weight:700}
+
+  .ag-label{font-size:9px;font-weight:800;letter-spacing:1.3px;color:#1A4FBF;margin-bottom:8px}
+  .ag-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:11px;margin-bottom:16px}
+  .ag{border-radius:11px;padding:13px 12px;position:relative;overflow:hidden;transition:transform .2s,box-shadow .2s}
+  .ag:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,0,0,.07)}
+  .ag::before{content:'';position:absolute;top:0;left:0;right:0;height:3px}
+  .a1{background:#EFF6FF;border:1px solid #BFDBFE}.a1::before{background:linear-gradient(90deg,#1A4FBF,#3B82F6)}
+  .a2{background:#F5F3FF;border:1px solid #DDD6FE}.a2::before{background:linear-gradient(90deg,#7C3AED,#A78BFA)}
+  .a3{background:#ECFDF5;border:1px solid #A7F3D0}.a3::before{background:linear-gradient(90deg,#059669,#10B981)}
+  .ag-icon{font-size:18px;margin-bottom:3px}
+  .ag-name{font-size:14px;font-weight:900;margin-bottom:1px}
+  .a1 .ag-name{color:#1A4FBF}.a2 .ag-name{color:#7C3AED}.a3 .ag-name{color:#059669}
+  .ag-role{font-size:8px;color:#64748b;font-weight:700;letter-spacing:.5px;margin-bottom:6px}
+  .ag-desc{font-size:10px;color:#475569;line-height:1.45;margin-bottom:6px}
+  .ag-list{list-style:none;padding:0}
+  .ag-list li{font-size:9.5px;color:#334155;padding:1.5px 0;padding-left:12px;position:relative;line-height:1.35}
+  .ag-list li::before{content:'→';position:absolute;left:0;font-weight:700;font-size:9px}
+  .a1 .ag-list li::before{color:#1A4FBF}.a2 .ag-list li::before{color:#7C3AED}.a3 .ag-list li::before{color:#10B981}
+  .ag-new{margin-top:7px;padding-top:6px;border-top:1.5px dashed}
+  .a1 .ag-new{border-color:#93C5FD}.a2 .ag-new{border-color:#C4B5FD}.a3 .ag-new{border-color:#6EE7B7}
+  .ag-new-label{font-size:7.5px;font-weight:800;letter-spacing:.8px;margin-bottom:3px}
+  .a1 .ag-new-label{color:#1D4ED8}.a2 .ag-new-label{color:#6D28D9}.a3 .ag-new-label{color:#047857}
+  .ag-new-item{font-size:9px;line-height:1.35;padding:1.5px 0}
+  .a1 .ag-new-item{color:#1e40af}.a2 .ag-new-item{color:#5b21b6}.a3 .ag-new-item{color:#065f46}
+  .ag-new-item strong{font-weight:700}
+
+  .flow-box{background:linear-gradient(135deg,#1A4FBF04,#7C3AED04,#10B98104);border:1.5px solid #E2E8F0;border-radius:11px;padding:12px 16px;margin-bottom:16px;animation:borderGlow 3s ease infinite}
+  .flow-label{font-size:9px;font-weight:800;color:#1A4FBF;letter-spacing:1px;margin-bottom:8px}
+  .flow-chain{display:flex;align-items:center;gap:5px;flex-wrap:wrap;margin-bottom:8px}
+  .flow-step{background:#fff;border-radius:6px;padding:5px 10px;font-weight:600;font-size:9.5px;box-shadow:0 1px 4px rgba(0,0,0,.05);transition:transform .2s}
+  .flow-step:hover{transform:scale(1.03)}
+  .fs-b{border-left:3px solid #1A4FBF;color:#1e40af}
+  .fs-g{border-left:3px solid #10B981;color:#065f46}
+  .fs-p{border-left:3px solid #7C3AED;color:#5b21b6}
+  .fl-arr{color:#94a3b8;font-size:14px;font-weight:700;animation:flowArrow 1.8s ease infinite}
+  .flow-note{font-size:10px;color:#475569;line-height:1.5}
+  .flow-note strong{color:#0f172a}
+  .learn-bar{display:flex;align-items:center;gap:8px;margin-top:8px;padding:7px 11px;background:#FFFBEB;border-radius:7px;border:1px solid #FDE68A}
+  .learn-dot{width:7px;height:7px;border-radius:50%;background:#F59E0B;flex-shrink:0;animation:dotPulse 1.5s ease infinite}
+  .learn-text{font-size:9.5px;color:#92400E;font-weight:600;line-height:1.35}
+
+  .ai-label{font-size:9px;font-weight:800;color:#1A4FBF;letter-spacing:1px;margin-bottom:7px}
+  .ai-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:16px}
+  .ai-chip{display:flex;align-items:flex-start;gap:6px;background:#F8FAFC;border-radius:7px;padding:7px 10px;transition:background .15s}
+  .ai-chip:hover{background:#F1F5F9}
+  .ai-ico{font-size:13px;margin-top:1px;flex-shrink:0}
+  .ai-txt{font-size:9.5px;color:#334155;line-height:1.4}
+  .ai-txt strong{color:#0f172a;font-weight:700}
+
+  .impact{background:#F0FDF4;border-radius:12px;padding:16px 18px;margin-bottom:16px;border:1.5px solid #10B98133;position:relative;overflow:hidden}
+  .impact::after{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:linear-gradient(90deg,transparent,#10B98108,transparent);background-size:200% 100%;animation:shimmer 3s linear infinite;pointer-events:none}
+  .imp-label{font-size:9px;font-weight:800;color:#059669;letter-spacing:1px;margin-bottom:10px}
+  .imp-grid{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:8px;margin-bottom:10px}
+  .imp-card{text-align:center;padding:4px 0;animation:countPop .6s ease both}
+  .imp-card:nth-child(1){animation-delay:.3s}.imp-card:nth-child(2){animation-delay:.4s}
+  .imp-card:nth-child(3){animation-delay:.5s}.imp-card:nth-child(4){animation-delay:.6s}
+  .imp-val{font-size:20px;font-weight:900;color:#059669}
+  .imp-val.big{font-size:24px;color:#0f172a}
+  .imp-desc{font-size:8.5px;color:#475569;margin-top:1px;line-height:1.25}
+  .imp-desc strong{color:#0f172a}
+  .imp-note{font-size:10px;color:#334155;line-height:1.5;padding-top:9px;border-top:1px solid #10B98133;position:relative;z-index:1}
+  .imp-note strong{color:#059669}
+
+  .bot-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px}
+  .bx{border-radius:9px;padding:12px 14px}
+  .bx-data{background:#F8FAFC;border:1px solid #E2E8F0}
+  .bx-risk{background:#FFFBEB;border:1px solid #FDE68A}
+  .bx-label{font-size:8.5px;font-weight:800;letter-spacing:1px;margin-bottom:6px}
+  .bx-label.dl{color:#475569}.bx-label.rl{color:#D97706}
+  .bx-item{font-size:10px;color:#334155;padding:2px 0;line-height:1.4}
+  .bx-item strong{color:#0f172a}
+  .ck{color:#10B981;font-weight:700;margin-right:3px}
+  .wn{color:#F59E0B;font-weight:700;margin-right:3px}
+
+  .footer{padding-top:12px;border-top:2px solid #E2E8F0;display:flex;justify-content:space-between;align-items:flex-end}
+  .fl-l .fl-lb{font-size:8.5px;font-weight:700;color:#1A4FBF;letter-spacing:.5px}
+  .pw-goals{display:flex;gap:4px;flex-wrap:wrap;margin-top:3px}
+  .pw-g{font-size:8px;font-weight:600;padding:2.5px 7px;border-radius:4px;background:#1A4FBF10;color:#1A4FBF;transition:background .15s}
+  .pw-g:hover{background:#1A4FBF20}
+  .fl-r{text-align:right}
+  .fl-logo{font-size:18px;font-weight:900;color:#1A4FBF}
+  .fl-sub{font-size:8.5px;color:#94a3b8}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="header fu d1">
+    <div>
+      <div class="logo">GENIE-US</div>
+      <div class="logo-sub">Three AI Agents. One Command Center.<br>Zero Manual Work.</div>
+    </div>
+    <div class="hdr-r">
+      <div class="badge">PW AI HACKATHON 2026 · ROUND 1</div>
+      <div class="hdr-team">Physics Wallah · Internal Innovation Challenge</div>
+    </div>
+  </div>
+
+  <div class="hero">
+    <div class="hero-num">₹2.5 Cr to ₹6.5 Cr</div>
+    <div class="hero-label">PROJECTED 12-MONTH NET BENEFIT · FINANCE VALIDATABLE</div>
+  </div>
+
+  <div class="oneliner fu d2">
+    <p>PW's Marketing, Content, and Procurement teams spend <span class="hl">thousands of hours monthly</span> on work AI can do in seconds. GENIE-US puts three purpose-built agents in one platform. They plan. They create. They source. They verify. <span class="hl">Automatically.</span></p>
+  </div>
+
+  <div class="ba fu d2">
+    <div class="ba-label">THE SHIFT</div>
+    <div class="ba-grid">
+      <div class="ba-box ba-b">
+        <div class="ba-title">TODAY (MANUAL)</div>
+        <div class="ba-item">Campaigns built on gut feel. No funnel math.</div>
+        <div class="ba-item">Content made without quality checks or SEO.</div>
+        <div class="ba-item">Vendor quotes compared in spreadsheets.</div>
+        <div class="ba-item">No way to know if PW is overpaying.</div>
+        <div class="ba-item">Every event starts from scratch.</div>
+        <div class="ba-item">Marketing, Content, Procurement work in silos.</div>
+      </div>
+      <div class="ba-arrow-col"><span class="ba-arrow">→</span></div>
+      <div class="ba-box ba-a">
+        <div class="ba-title">WITH GENIE-US</div>
+        <div class="ba-item">AI builds campaigns with verified funnel math.</div>
+        <div class="ba-item">Scripts, thumbnails, SEO generated and scored.</div>
+        <div class="ba-item">Quotes extracted by AI. Vendors scored and ranked.</div>
+        <div class="ba-item">AI scrapes market rates. Verifies every vendor.</div>
+        <div class="ba-item">System learns from every action. Gets smarter weekly.</div>
+        <div class="ba-item">One action chains across all three agents.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="fu d3">
+    <div class="ag-label">THREE AGENTS, ONE PLATFORM</div>
+    <div class="ag-grid">
+
+      <div class="ag a1">
+        <div class="ag-icon">🎯</div>
+        <div class="ag-name">ION</div>
+        <div class="ag-role">MARKETING & EVENT INTELLIGENCE</div>
+        <div class="ag-desc">Plans events. Builds campaigns. Projects funnels. Simulates audiences. Detects risks. Audits every plan against PW brand rules.</div>
+        <ul class="ag-list">
+          <li>Funnel projection with AI strategy</li>
+          <li>Full event plan with ROI forecast</li>
+          <li>Campaign blueprint with daily calendar</li>
+          <li>Student persona simulation</li>
+          <li>A/B test prediction before spending</li>
+          <li>Auto compliance and blocker detection</li>
+        </ul>
+        <div class="ag-new">
+          <div class="ag-new-label">🆕 NEW CAPABILITIES</div>
+          <div class="ag-new-item">🔎 <strong>Competitor Tracking:</strong> AI monitors competitor campaigns, ads, events, and social media. Shows what's working for them and what PW can counter.</div>
+          <div class="ag-new-item">🎙️ <strong>Audience Pulse:</strong> Scrapes student forums, Reddit, Quora, YouTube comments to surface what target students are actually worried about right now.</div>
+          <div class="ag-new-item">📈 <strong>Post-Event Auto ROI:</strong> After every event, AI pulls attendance and lead data automatically. Computes actual ROI vs projected. No manual reporting.</div>
+        </div>
+      </div>
+
+      <div class="ag a2">
+        <div class="ag-icon">🎬</div>
+        <div class="ag-name">STUDIO</div>
+        <div class="ag-role">CONTENT PRODUCTION ENGINE</div>
+        <div class="ag-desc">Automates the full content pipeline. Ideation to scripting to quality audit to publishing. One brief becomes a production-ready package.</div>
+        <ul class="ag-list">
+          <li>AI-ranked content ideas with gap analysis</li>
+          <li>Full script generation with visual cues</li>
+          <li>Thumbnail and title CTR optimization</li>
+          <li>Lecture → clips, notes, flashcards, reels</li>
+          <li>Content quality scoring (0 to 100)</li>
+          <li>SEO and cross-platform distribution plan</li>
+        </ul>
+        <div class="ag-new">
+          <div class="ag-new-label">🆕 NEW CAPABILITIES</div>
+          <div class="ag-new-item">📊 <strong>Trend Radar:</strong> Scrapes YouTube trending, Google Trends, and exam forums to find what students are searching for right now. Content ideas match real demand.</div>
+          <div class="ag-new-item">🌐 <strong>Multi-Language Repurpose:</strong> Takes one Hindi lecture and auto-generates scripts, notes, and subtitles in English, Tamil, Telugu, Bengali. One lecture, five markets.</div>
+          <div class="ag-new-item">🏆 <strong>Content Library Audit:</strong> Scans PW's entire existing video library. Flags stale content. Scores every video. Prioritizes what to update first based on exam relevance.</div>
+        </div>
+      </div>
+
+      <div class="ag a3">
+        <div class="ag-icon">🏢</div>
+        <div class="ag-name">PROCURE</div>
+        <div class="ag-role">VENDOR INTELLIGENCE ENGINE</div>
+        <div class="ag-desc">Discovers vendors. Extracts quotes. Compares pricing. Detects anomalies. Verifies market rates. Handles outreach. Full procurement on autopilot.</div>
+        <ul class="ag-list">
+          <li>AI quote extraction from PDF, image, Excel</li>
+          <li>Vendor scoring (0 to 100) with price history</li>
+          <li>Anomaly and fraud pattern detection</li>
+          <li>AI-generated negotiation briefs</li>
+          <li>Spend analytics with savings opportunities</li>
+          <li>Smart vendor recommendation per request</li>
+        </ul>
+        <div class="ag-new">
+          <div class="ag-new-label">🆕 NEW CAPABILITIES</div>
+          <div class="ag-new-item">🌐 <strong>AI Vendor Discovery:</strong> Scrapes Google Maps, directories, and market databases. Finds and verifies new vendors automatically. PW is never stuck with the same suppliers.</div>
+          <div class="ag-new-item">📞 <strong>AI Outreach:</strong> Auto-calls vendors, sends WhatsApp and emails to collect quotations. Zero human effort for initial contact and follow-ups.</div>
+          <div class="ag-new-item">✅ <strong>Market Rate Verification:</strong> Cross-checks PW vendor prices against scraped market data. Confirms if PW is getting a fair deal or quietly overpaying.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="fu d4">
+    <div class="flow-box">
+      <div class="flow-label">⚡ CROSS-AGENT INTELLIGENCE: WHY THIS ISN'T 3 SEPARATE TOOLS</div>
+      <div class="flow-chain">
+        <span class="flow-step fs-b">🎯 ION plans a seminar in Kota</span>
+        <span class="fl-arr">→</span>
+        <span class="flow-step fs-g">🏢 PROCURE discovers vendors, collects quotes, scores them</span>
+        <span class="fl-arr">→</span>
+        <span class="flow-step fs-p">🎬 STUDIO generates promo content, scripts, social posts</span>
+      </div>
+      <div class="flow-note">One action chains across all three agents. Shared <strong>PW knowledge base</strong> (courses, pricing, calendar, brand rules, vendor database) keeps every agent on the same page. A single command dashboard shows combined impact.</div>
+      <div class="learn-bar">
+        <div class="learn-dot"></div>
+        <div class="learn-text">GENIE-US gets smarter every day. Every quote, campaign, script, and vendor interaction feeds back into the system. The more PW uses it, the better it gets.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="fu d5">
+    <div class="ai-label">🧠 WHAT THE AI ACTUALLY DOES</div>
+    <div class="ai-grid">
+      <div class="ai-chip"><span class="ai-ico">📄</span><div class="ai-txt"><strong>Document Intelligence:</strong> OCR + LLM extraction from messy vendor quotes. Works with Hindi, English, handwritten, mixed formats.</div></div>
+      <div class="ai-chip"><span class="ai-ico">📊</span><div class="ai-txt"><strong>Funnel Engine:</strong> Client-side math for projections. AI provides strategy to fix the weakest funnel stage.</div></div>
+      <div class="ai-chip"><span class="ai-ico">🔍</span><div class="ai-txt"><strong>Anomaly Detection:</strong> Catches price spikes, split orders, duplicate payments, and vendor collusion patterns.</div></div>
+      <div class="ai-chip"><span class="ai-ico">✍️</span><div class="ai-txt"><strong>Content Engine:</strong> Scripts, briefs, plans, SEO copy. Built on structured data and brand rules. Not guesses.</div></div>
+      <div class="ai-chip"><span class="ai-ico">🌐</span><div class="ai-txt"><strong>Market Scraping:</strong> Pulls vendor data from Google Maps and directories. Tracks competitor campaigns and student trends.</div></div>
+      <div class="ai-chip"><span class="ai-ico">📞</span><div class="ai-txt"><strong>AI Outreach:</strong> Calls, WhatsApp, and emails vendors for quotes. Follows up automatically. No human in the loop.</div></div>
+      <div class="ai-chip"><span class="ai-ico">🛡️</span><div class="ai-txt"><strong>Compliance Guard:</strong> Scans for banned language, brand violations, date conflicts, and budget threshold breaches.</div></div>
+      <div class="ai-chip"><span class="ai-ico">🔄</span><div class="ai-txt"><strong>Smart Router:</strong> Type one request in plain English. System routes it to the right agent, fills context, chains the rest.</div></div>
+    </div>
+  </div>
+
+  <div class="impact fu d5">
+    <div class="imp-label">💰 HOW FINANCE VALIDATES THIS</div>
+    <div class="imp-grid">
+      <div class="imp-card">
+        <div class="imp-val">₹1-3Cr</div>
+        <div class="imp-desc"><strong>ION</strong><br>Revenue uplift from optimized campaigns and events</div>
+      </div>
+      <div class="imp-card">
+        <div class="imp-val">₹50L-1.5Cr</div>
+        <div class="imp-desc"><strong>STUDIO</strong><br>Cost savings from 10x content velocity</div>
+      </div>
+      <div class="imp-card">
+        <div class="imp-val">₹1-2Cr</div>
+        <div class="imp-desc"><strong>PROCURE</strong><br>Savings from price optimization + anomaly recovery</div>
+      </div>
+      <div class="imp-card">
+        <div class="imp-val big">₹2.5-6.5Cr</div>
+        <div class="imp-desc"><strong>COMBINED</strong><br>Net benefit across all three agents</div>
+      </div>
+    </div>
+    <div class="imp-note">
+      Each agent has a <strong>built-in ROI calculator</strong>. ION: funnel improvement × conversion × ticket size. STUDIO: content hours saved × rate + retention lift. PROCURE: discount reduction × volume + anomalies caught × value. All projections are A/B testable within the pilot window.
+    </div>
+  </div>
+
+  <div class="bot-grid fu d6">
+    <div class="bx bx-data">
+      <div class="bx-label dl">📊 DATA & FEASIBILITY</div>
+      <div class="bx-item"><span class="ck">✓</span><strong>Marketing:</strong> Campaign history, events, funnels. Available internally.</div>
+      <div class="bx-item"><span class="ck">✓</span><strong>Content:</strong> Lecture library, YouTube analytics, production logs.</div>
+      <div class="bx-item"><span class="ck">✓</span><strong>Vendor:</strong> Quote PDFs, purchase orders, payment records.</div>
+      <div class="bx-item"><span class="ck">✓</span><strong>Market:</strong> Google Maps, directories, competitor data via scraping.</div>
+      <div class="bx-item"><span class="ck">✓</span><strong>Prototype:</strong> MVP ready in 5 to 7 days. Pre-loaded demo data.</div>
+      <div class="bx-item"><span class="ck">✓</span><strong>Stack:</strong> React + Claude/Gemini API + client-side compute.</div>
+    </div>
+    <div class="bx bx-risk">
+      <div class="bx-label rl">⚠️ RISKS & MITIGATION</div>
+      <div class="bx-item"><span class="wn">!</span><strong>Large scope:</strong> Modular build. Each agent works alone. Must-haves first.</div>
+      <div class="bx-item"><span class="wn">!</span><strong>AI errors:</strong> Human-in-the-loop. AI generates. Humans review and approve.</div>
+      <div class="bx-item"><span class="wn">!</span><strong>Data access:</strong> Demo uses pre-loaded data. Real deployment plugs into PW systems.</div>
+      <div class="bx-item"><span class="wn">!</span><strong>AI outreach:</strong> Starts with WhatsApp and email. Voice calling added after validation.</div>
+      <div class="bx-item"><span class="wn">!</span><strong>Adoption:</strong> Each agent replaces hours of manual work. Value is felt from day one.</div>
+    </div>
+  </div>
+
+  <div class="footer fu d7">
+    <div class="fl-l">
+      <div class="fl-lb">MAPPED TO PW GOALS</div>
+      <div class="pw-goals">
+        <span class="pw-g">Operational Efficiency</span>
+        <span class="pw-g">Cost Optimization</span>
+        <span class="pw-g">Revenue Growth</span>
+        <span class="pw-g">Content Quality</span>
+        <span class="pw-g">AI-First Innovation</span>
+        <span class="pw-g">Cross-Department Impact</span>
+      </div>
+    </div>
+    <div class="fl-r">
+      <div class="fl-logo">GENIE-US</div>
+      <div class="fl-sub">PW AI Hackathon 2026</div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
